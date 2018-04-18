@@ -14,7 +14,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/editText1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -35,13 +35,22 @@
         android:id="@+id/editText3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="0.06"
+        android:ems="10"
+        android:hint="Enter quantity"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/editText4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Enter date of purchase"
         android:inputType="textPersonName"
         android:selectAllOnFocus="false" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/editText5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
