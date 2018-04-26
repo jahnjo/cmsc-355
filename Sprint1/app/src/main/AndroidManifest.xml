@@ -21,6 +21,7 @@
         <activity android:name=".add"></activity>
         <activity android:name=".searchedProduct"></activity>
         <activity android:name=".filteredResults"></activity>
+        <activity android:name=".item"></activity>
     </application>
 
 </manifest>
