@@ -70,4 +70,26 @@ public class item extends Activity {
         }
     }
 
+    public void clickIncreaseQuantity(View v) {
+        if(v.getId() == R.id.increaseQuantity) {
+            Intent intent = getIntent();
+            int quantity = intent.getIntExtra("Quantity", 0);
+            String name = intent.getStringExtra("Name of product");
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference myRef = database.getReference(name);
+            myRef.child("Quantity").setValue(quantity + 1);
+        }
+    }
+
+    public void clickReduceQuantity(View v) {
+        if(v.getId() == R.id.reduceQuantity) {
+            Intent intent = getIntent();
+            int quantity = intent.getIntExtra("Quantity", 0);
+            String name = intent.getStringExtra("Name of product");
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference myRef = database.getReference(name);
+            myRef.child("Quantity").setValue(quantity - 1);
+        }
+    }
+
 }

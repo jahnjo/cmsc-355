@@ -45,7 +45,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Enter date of purchase"
+        android:hint="Enter date of purchase (mm/dd/yyyy)"
         android:inputType="textPersonName"
         android:selectAllOnFocus="false" />
 
@@ -54,7 +54,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Enter expiration date"
+        android:hint="Enter date of expiration (mm/dd/yyyy)"
         android:inputType="textPersonName"
         android:selectAllOnFocus="false" />
 

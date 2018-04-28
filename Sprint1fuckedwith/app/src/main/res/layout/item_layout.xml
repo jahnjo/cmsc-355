@@ -47,6 +47,14 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/reduceQuantity"
+            android:layout_width="161dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="clickReduceQuantity"
+            android:text="-" />
+
+        <Button
             android:id="@+id/increaseQuantity"
             android:layout_width="169dp"
             android:layout_height="wrap_content"
@@ -54,13 +62,6 @@
             android:onClick="clickIncreaseQuantity"
             android:text="+" />
 
-        <Button
-            android:id="@+id/reduceQuantity"
-            android:layout_width="161dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="clickReduceQuantity"
-            android:text="-" />
     </LinearLayout>
 
     <Button
