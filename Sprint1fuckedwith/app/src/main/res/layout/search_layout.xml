@@ -14,13 +14,13 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/editTextSearch1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.03"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Product Name" />
+        android:hint="Product Name"
+        android:inputType="textPersonName" />
 
     <Button
         android:id="@+id/searchButton"
