@@ -19,7 +19,6 @@
         <activity android:name=".filter"></activity>
         <activity android:name=".search"></activity>
         <activity android:name=".add"></activity>
-        <activity android:name=".searchedProduct"></activity>
         <activity android:name=".filteredResults"></activity>
         <activity android:name=".item"></activity>
     </application>

@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -23,31 +24,41 @@ public class item extends Activity {
         double price;
         int quantity;
         String location;
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.item_layout);
         Intent intent = getIntent();
         String name = intent.getStringExtra("Name of product");
+        purchase = intent.getStringExtra("Purchase");
+        exp = intent.getStringExtra("Exp");
+        location = intent.getStringExtra("Location");
+        price = intent.getDoubleExtra("Price", 0.00);
+        quantity = intent.getIntExtra("Quantity", 0);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.item_layout);
+        /*exp = "";
+        purchase = "";
+        price = 0;
+        quantity = 0;
+        location = "";*/
 
         TextView textView1 = (TextView) findViewById(R.id.textView5);
         textView1.setText("Name: " + name);
 
-        purchase = intent.getStringExtra("Purchase");
+
         TextView textView2 = (TextView) findViewById(R.id.textView6);
         textView2.setText("Purchase Date: " + purchase);
 
-        exp = intent.getStringExtra("Exp");
+
         TextView textView3 = (TextView) findViewById(R.id.textView7);
         textView3.setText("Expiration Date: " + exp);
 
-        location = intent.getStringExtra("Location");
+
         TextView textView4 = (TextView) findViewById(R.id.textView8);
         textView4.setText("Location: " + location);
 
-        price = intent.getDoubleExtra("Price", 0.00);
+
         TextView textView5 = (TextView) findViewById(R.id.textView9);
         textView5.setText("Price: " + price);
 
-        quantity = intent.getIntExtra("Quantity", 0);
+
         TextView textView6 = (TextView) findViewById(R.id.textView10);
         textView6.setText("Quantity: " + quantity);
     }
@@ -67,6 +78,7 @@ public class item extends Activity {
             singleName.removeValue();
             Intent i = new Intent(item.this, MainActivity.class);
             startActivity(i);
+            Toast.makeText(this,"Item deleted, Press HOME to return.", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -78,6 +90,7 @@ public class item extends Activity {
             FirebaseDatabase database = FirebaseDatabase.getInstance();
             DatabaseReference myRef = database.getReference(name);
             myRef.child("Quantity").setValue(quantity + 1);
+            Toast.makeText(this,"Quantity increased to " + (quantity+1), Toast.LENGTH_LONG).show();
         }
     }
 
@@ -89,6 +102,20 @@ public class item extends Activity {
             FirebaseDatabase database = FirebaseDatabase.getInstance();
             DatabaseReference myRef = database.getReference(name);
             myRef.child("Quantity").setValue(quantity - 1);
+
+            if(quantity > 1 || quantity < 1){
+                Toast.makeText(this,"Quantity decreased to " + (quantity-1), Toast.LENGTH_LONG).show();
+            }
+            else if(quantity == 1){
+                Toast.makeText(this,"Item deleted, Press HOME to return.", Toast.LENGTH_LONG).show();
+                final FirebaseDatabase database2 = FirebaseDatabase.getInstance();
+                Intent intent2 = getIntent();
+                String name2 = intent2.getStringExtra("Name of product");
+                DatabaseReference singleName = database2.getReference(name2);
+                singleName.removeValue();
+                Intent i = new Intent(item.this, MainActivity.class);
+                startActivity(i);
+            }
         }
     }
 

@@ -36,7 +36,7 @@ public class add extends Activity {
         EditText et5 = (EditText) findViewById(R.id.editText5);
         EditText et6 = (EditText) findViewById(R.id.editText6);
 
-        name = et1.getText().toString();
+        name = et1.getText().toString().toLowerCase();
         Log.d("NAME", name);
 
 

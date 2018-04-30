@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference warehouseNames = database.getReference();
-        //final String[] items = new String[30];
         final List<String> listNames = new ArrayList<String>();
         final ArrayAdapter<String> adapter =
                 new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listNames);
@@ -150,7 +149,9 @@ public class MainActivity extends AppCompatActivity {
     public void clickSearch(View v) {
         if(v.getId() == R.id.search) {
             Intent i = new Intent(MainActivity.this, search.class);
+            Log.d("FLAG", "init intent");
             startActivity(i);
+            Log.d("FLAG", "activity started");
         }
     }
     public void clickFilter(View v) {
